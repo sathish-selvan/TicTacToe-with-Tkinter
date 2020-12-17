@@ -1,18 +1,20 @@
 from tkinter import *
 from tkinter.messagebox import showinfo
+#intializing root for tkinter
 root = Tk()
+#creating a board
 board=[[' ',' ',' '],
         [' ',' ',' '],
         [' ',' ',' ']]
-    
 
-
+#this func clears the board when someone wins or no one wins
 def clear_board(board):
     board=[[' ',' ',' '],
         [' ',' ',' '],
         [' ',' ',' ']]
     return board
-       
+
+#this func monitors the board and check whether there is a posibble combination of a player wins
 def monitor():
     
     global board
@@ -54,6 +56,7 @@ def monitor():
         return 1
     return 0
 
+# This func print out the board in the terminal and this does nothing with the GUI
 def print_board():
     global board
     for i in range(0,3):
@@ -71,19 +74,14 @@ end_move = 0
 player = 1
 total_moves=0    
 print_board()
+#this func awakes when the button in the GUI is tingled and the respective value passed in
 def define_sign(number):
 
     global board,b1,b2,b3,b4,b5,b6,b7,b8,b9,end_move,player,total_moves
-    
-    
-    
+  
     moves = {1:"00",2:"01",3:"02",4:"10",5:"11",6:"12",7:"20",8:"21",9:"22"}
     butt = {1:"b1",2:"b2",3:"b3",4:"b4",5:"b5",6:"b6",7:"b7",8:"b8",9:"b9"}
-    
-    
-        
-    
-    
+
     if player == 1:
         hope = int(number)
         p1_input = moves[hope]
@@ -99,8 +97,7 @@ def define_sign(number):
             
         else:
             print("invalid input, try again ")
-                
-        
+                    
     else:
         
         hope = int(number)
@@ -115,8 +112,7 @@ def define_sign(number):
             
         else:
             print("invalid input, try again ")
-                
-        
+                   
     total_moves += 1
     
     print_board()
@@ -139,7 +135,7 @@ def define_sign(number):
         b8.config(text=" ")
         b9.config(text=" ")
 
-
+#Labels and button for our GUI
 l1 = Label(root, text="Player 1 : X", font ="time 15")
 l1.grid(row=0,column=1)
 l2 = Label(root, text="Player 2 : O", font ="time 15")
